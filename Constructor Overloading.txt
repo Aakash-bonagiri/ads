@@ -1,0 +1,27 @@
+class Box{
+    int length, width, breadth;
+    Box(int l, int b, int w){
+        length = l;
+        width = w;
+        breadth = b;
+    }
+    
+    Box(int s){
+        length = breadth = width = s;
+    }
+    
+    int volume(){
+        return length * width * breadth;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        
+        Box cuboid = new Box(12,4,6);
+        Box cube = new Box(3);
+        
+        System.out.println("The volume of cubioid is " + cuboid.volume() + " cubic units");
+        System.out.println("The volume of cube is " + cube.volume() + " cubic units");
+        
+    }
+}

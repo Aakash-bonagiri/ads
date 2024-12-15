@@ -1,0 +1,26 @@
+import java.io.*;
+class Main{
+    public static void main(String args[]) throws IOException{
+        
+        BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+        
+        // Readig String value
+        System.out.println("Enter any String");
+        String str=br.readLine();
+        System.out.println("The String value is " + str);
+        
+        // Readig integer value
+        int n;
+        System.out.println("Enter any integer value");
+        n=Integer.parseInt(br.readLine());
+        System.out.println("The integer value is " + n);
+        
+         // Readig char value
+        char ch;
+        System.out.println("Enter any character value");
+        ch=(char)br.read();
+        System.out.println("The char value is " + ch);
+
+       
+    }
+}

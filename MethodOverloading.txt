@@ -1,0 +1,15 @@
+class Shape{
+    int area(int l, int b){
+        return l*b;
+    }
+    int area(int s){
+        return s*s;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Shape s = new Shape();
+        System.out.println("Area of rectangle whose sides are 12,4 is " + s.area(12,4) + "square units");
+        System.out.println("Area of square whose side is 9 is " + s.area(9) + "square units");
+    }
+}

@@ -1,0 +1,36 @@
+interface Parent1{
+  void p1Wish();   
+}
+
+interface Parent2{
+     void p2Wish();
+}
+
+interface Child extends Parent1, Parent2{
+     void cWish();
+}
+
+class Demo implements Child{
+    public void p1Wish(){
+        System.out.println("wishes from parent1");
+    }
+    
+    public void p2Wish(){
+        System.out.println("wishes from parent2");
+    }
+    
+    public void cWish(){
+        System.out.println("wishes from child");
+    }
+    
+}
+class Main {
+    public static void main(String[] args) {
+        
+        Demo d = new Demo();
+        d.p1Wish();
+        d.p2Wish();
+        d.cWish();
+    
+    }
+}

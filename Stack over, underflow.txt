@@ -1,0 +1,25 @@
+class Stack{
+    // overflow top==size-1
+    int top=4,size=5;
+    boolean isFull(){
+        return top==size-1;
+    }
+    
+    //underflow top==-1
+    boolean isEmpty(){
+        return top==-1;
+    }
+    
+}
+class Main {
+    public static void main(String args[]){
+    Stack s = new Stack();
+    if(s.isFull()){
+        System.out.println(" Stack Overflow");
+    }
+    if(s.isEmpty()){
+         System.out.println(" Stack Underflow");
+    }
+        
+    }
+}

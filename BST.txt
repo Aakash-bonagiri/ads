@@ -1,0 +1,101 @@
+import java.util.*;
+
+class Node{
+    int data;
+    Node llink,rlink;
+}
+
+class bTree extends Node{
+    Node temp,q,root;
+    
+    void createTree(Node temp, Node q, int y){
+    if(y<temp.data){
+        if(temp.llink==null)
+        temp.llink=q;
+        else
+        createTree(temp.llink, q, y);
+    }        
+    else
+    {
+        if(y>temp.data)
+        {
+            if(temp.rlink==null)
+            temp.rlink=q;
+            else
+            createTree(temp.rlink,q,y);
+        }
+    }
+    }
+void Preorder(Node root){
+
+if(root!=null){
+System.out.print(root.data+" ");
+Preorder(root.llink);
+Preorder(root.rlink);
+}
+}//preorder close
+
+void Postorder(Node root){
+
+if(root!=null){
+
+Postorder(root.llink);
+Postorder(root.rlink);
+System.out.print(root.data+" ");
+}
+}//postorder close
+
+void Inorder(Node root){
+
+if(root!=null){
+
+Inorder(root.llink);
+System.out.print(root.data+" ");
+Inorder(root.rlink);
+
+}
+}
+}
+
+class Main {
+    public static void main(String[] args) {
+    bTree obj = new bTree();
+    Scanner sc = new Scanner(System.in);
+    Node p,q,root,temp;
+    int value,n,y;
+    root = null;
+    System.out.println("Enter the root node element");
+    value = sc.nextInt();
+    
+    if(root == null){
+        p = new Node();
+        p.data=value;
+        p.llink=null;
+        p.rlink=null;
+        root=p;
+    }
+
+         System.out.println("Enter the number of elements to be inserted");
+         n=sc.nextInt();
+         
+         for(int i=0;i<n;i++){
+        temp=root;
+        q=new Node();
+        System.out.println("Enter the element to be inserted");
+        y=sc.nextInt();
+        q.data=y;
+        q.llink=null;
+        q.rlink=null;
+        obj.createTree(temp, q, y);
+         }
+    
+        obj.Preorder(root);
+        System.out.println("-- > preorder travelsal");
+        obj.Inorder(root);
+        System.out.println("--> inorder travelsal");
+        obj.Postorder(root);
+        System.out.println("--> postorder travelsal");
+    
+    
+    }
+}

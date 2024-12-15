@@ -1,0 +1,38 @@
+class Parent{
+    void pWish(){
+        System.out.println("From parent class");
+    }
+    
+}
+class Child1 extends Parent{
+    void c1Wish(){
+        System.out.println("From child1 class");
+    }
+}
+class Child2 extends Parent{
+    void c2Wish(){
+        System.out.println("From child2 class");
+    }
+}
+class Child3 extends Parent{
+    void c3Wish(){
+        System.out.println("From child3 class");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        
+    Child1 c1 = new Child1();
+    Child2 c2 = new Child2();
+    Child3 c3 = new Child3();
+    
+    c1.pWish();
+    c1.c1Wish();
+    c2.pWish();
+    c2.c2Wish();
+    c3.pWish();
+    c3.c3Wish();
+    
+    }
+}

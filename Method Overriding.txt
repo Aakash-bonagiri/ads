@@ -1,0 +1,19 @@
+class Bike{
+    void run(){
+        System.out.println("Bike is running");
+    }
+}
+
+class Bike2 extends Bike{
+    void run(){
+        System.out.println("Bike is running successfully");
+    }
+}
+class Main {
+    public static void main(String args[]){
+        
+     Bike2 b = new Bike2();
+     b.run();
+        
+    }
+}

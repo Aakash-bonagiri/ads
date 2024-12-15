@@ -1,0 +1,102 @@
+import java.util.*;
+class Stack{
+    
+    int top,size;
+    int[] stk;
+    Stack(int n){
+        top=-1;
+        size=n;
+        stk = new int[size];
+    }
+    
+    void push(int ele){
+        if(isFull()){
+            System.out.println("Stack is full");
+        }
+        else{
+            top=top+1;
+            stk[top]=ele;
+            System.out.println("The element "+ stk[top] + " is inserted successfully");
+        }
+    }
+    
+    void pop(){
+        if(isEmpty()){
+            System.out.println(" Stack is empty");
+        }
+        else{
+            System.out.println("The popped out element is "+ stk[top]);
+            top=top-1;
+        }
+    }
+    
+    void peek(){
+        if(top==-1){
+            System.out.println(" Stack is empty");
+        }
+        else{
+            System.out.println("The top element is "+ stk[top]);
+        }
+    }
+    
+    boolean isEmpty(){
+        return top==-1;
+    }
+    
+    boolean isFull(){
+        return top==(size-1);
+    }
+    
+    void display(){
+        System.out.println("Displaying stack elements");
+    for(int i=top; i>=0;i--){
+        System.out.println(stk[i]);
+    }
+    }
+}
+class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int s,n,value,choice;
+        System.out.println("Enter size of the array");
+        s=sc.nextInt();
+        Stack st = new Stack(s);
+        while(true){
+            System.out.println("\nChoose an operation:");
+            System.out.println("1. Push");
+            System.out.println("2. Pop");
+            System.out.println("3. Peek");
+            System.out.println("4. Display");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            
+            switch(choice){
+            case 1:
+                System.out.println("Enter the element to be pushed");
+                value = sc.nextInt();
+                st.push(value);
+                break;
+            case 2:
+                st.pop();
+                break;
+            case 3: 
+                st.peek();
+                break;
+            case 4: 
+                st.display();
+                break;
+            case 5:
+                System.out.println("Exiting....");
+                return;
+            default:
+                System.out.println("Enter a valid choice");
+        }
+        }
+        
+        
+       
+        
+       
+    }
+}
