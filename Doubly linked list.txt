@@ -48,7 +48,7 @@ class Main {
         }
         Node newNode = new Node(data);
         Node temp = head;
-        for (int i = 1; i < position - 1 && temp != null; i++) {
+        for (int i = 1; i < position - 1; i++) {
             temp = temp.next;
         }
         if (temp == null) {
@@ -101,13 +101,10 @@ class Main {
             return;
         }
         Node temp = head;
-        for (int i = 1; i < position && temp != null; i++) {
+        for (int i = 1; i < position ; i++) {
             temp = temp.next;
         }
-        if (temp == null) {
-            System.out.println("Position out of bounds.");
-            return;
-        }
+        
         if (temp == tail) {
             deleteLast();
         } else {
