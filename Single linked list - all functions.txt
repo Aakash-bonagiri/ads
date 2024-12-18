@@ -1,103 +1,87 @@
 import java.util.Scanner;
 
-class Node {
+class Node{
     int data;
     Node link;
-
-    Node(int data) {
+    
+    Node(int data){
         this.data = data;
-        this.link = null;
+        this.link=link;
     }
 }
 
-class Main {
+class Main{
     private Node head;
-
-    // Add at the beginning
-    public void addFirst(int data) {
+    
+    public void addFirst(int data){
         Node newNode = new Node(data);
         newNode.link = head;
         head = newNode;
     }
-
-    // Add at the end
-    public void addLast(int data) {
+    
+    public void addLast(int data){
         Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
+        if(head==null){
+            newNode = head;
             return;
         }
+        
         Node current = head;
-        while (current.link != null) {
-            current = current.link;
+        while(current.link!=null){
+            current=current.link;
         }
-        current.link = newNode;
+        current.link= newNode;
     }
-
-    // Add at a specific position
-    public void addBetween(int data, int position) {
-        if (position <= 1) {
+    
+    public void addPos(int data, int pos){
+        Node newNode = new Node(data);
+        if(pos<=1){
             addFirst(data);
             return;
         }
-        Node newNode = new Node(data);
+        
         Node current = head;
-        for (int i = 1; i < position - 1 && current != null; i++) {
-            current = current.link;
+        for(int i = 1; i<pos-1 ; i++){
+         current = current.link;
         }
-        if (current == null) {
-            System.out.println("Position out of bounds.");
-            return;
-        }
-        newNode.link = current.link;
-        current.link = newNode;
+         newNode.link= current.link;
+        current.link=newNode;
+        
     }
-
-    // Delete the first node
-    public void deleteFirst() {
+    
+    public void deleteFirst(){
         if (head == null) {
             System.out.println("List is empty.");
             return;
         }
         head = head.link;
     }
-
-    // Delete the last node
-    public void deleteLast() {
+    
+    public void deleteLast(){
+        Node current = head;
         if (head == null) {
             System.out.println("List is empty.");
             return;
         }
-        if (head.link == null) {
-            head = null;
-            return;
-        }
-        Node current = head;
         while (current.link.link != null) {
             current = current.link;
         }
         current.link = null;
     }
-
-    // Delete at a specific position
-    public void deleteBetween(int position) {
-        if (position <= 1) {
+    
+    public void deletePos(int pos){
+        if (pos <= 1) {
             deleteFirst();
             return;
         }
         Node current = head;
-        for (int i = 1; i < position - 1 && current != null; i++) {
+        for (int i = 1; i < pos - 1; i++) {
             current = current.link;
-        }
-        if (current == null || current.link == null) {
-            System.out.println("Position out of bounds.");
-            return;
-        }
-        current.link = current.link.link;
     }
+    current.link = current.link.link;
+}
 
-    // Display the list
-    public void display() {
+ public void display() {
         if (head == null) {
             System.out.println("List is empty.");
             return;
@@ -109,7 +93,7 @@ class Main {
         }
         System.out.println("null");
     }
-
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Main list = new Main();
@@ -132,7 +116,7 @@ class Main {
                     System.out.print("Enter value: ");
                     int value = scanner.nextInt();
                     System.out.print("Enter position: ");
-                    list.addBetween(value, scanner.nextInt());
+                    list.addPos(value, scanner.nextInt());
                     break;
                 case 4:
                     list.deleteFirst();
@@ -142,7 +126,7 @@ class Main {
                     break;
                 case 6:
                     System.out.print("Enter position: ");
-                    list.deleteBetween(scanner.nextInt());
+                    list.deletePos(scanner.nextInt());
                     break;
                 case 7:
                     list.display();
